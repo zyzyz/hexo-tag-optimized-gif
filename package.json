@@ -1,21 +1,25 @@
 {
-  "name": "hexo-tag-html5video",
-  "version": "1.0.2",
-  "description": "Hexo tag to enable embedding html5video video into a post.",
+  "name": "hexo-tag-optimized-gif",
+  "version": "1.0.0",
+  "description": "Hexo tag to embed html5 video into a post, but treated as GIF",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyzyz/hexo-tag-optimized-gif.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "webm",
-    "mp4",
-    "html5video",
     "hexo",
-    "post",
+    "gif",
     "video",
+    "mp4",
+    "webm",
+    "size-optimization",
     "tag",
     "hexo-tag"
   ],
-  "author": "Stephen Brady",
-  "license": "ISC"
+  "author": "zyzyz",
+  "license": "MIT"
 }

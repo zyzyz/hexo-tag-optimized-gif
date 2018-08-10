@@ -1,39 +1,40 @@
-Adding embedded html5 video to hexo
+# hexo-tag-optimized-gif
 
-{% html5video %} 
-{% asset_path big-buck-bunny_trailer.webm %}
-{% endhtml5video %} 
+Add embedded html5 video to hexo, but treat it like a GIF.
 
-Usage:
-With no args, the defaults are used:
-width = '100%'
-height = '250px'
-codec = 'video/webm'
+Maybe you are recording GIFs for your blog but the GIF files are too big and many of them are eating up band width from your free plan CDN? An optimization is to use some kind of CDN like Cloudinay which is able to covert your uploaded GIF into smaller `MP4` or `WebM` video file by just changing extension at the end of your file URL.
 
-{% html5video %} 
-{% asset_path big-buck-bunny_trailer.webm %}
-{% endhtml5video %} 
+This tag will add a `<video>` tag with `autoplay` and `loop` attributes when generation, helping you achieve the optimization.
 
-or with args:
+## Installation
 
-{% html5video '100%' '250px' 'video/mp4' %} 
-{% asset_path big-buck-bunny_trailer.webm %}
-{% endhtml5video %} 
+``` bash
+$ npm install hexo-tag-optimized-gif --save
+```
 
-Add hexo-tag-html5 to your _config.yml file including all the other packages you're using. (Once you include one, you will need to include them all, grab the list from you package.json)
+## Usage
 
-Example:
-plugins: [hexo-tag-html5, 
-          hexo-deployer-git,  
-          hexo-server, 
-          hexo-generator-index, 
-          hexo-generator-archive, 
-          hexo-generator-category,
-          hexo-generator-json-content,
-          hexo-generator-tag,
-          hexo-renderer-ejs,
-          hexo-renderer-marked,
-          hexo-renderer-stylus,
-          hexo-tag-bootstrap,
-          hexo-tag-fontawesome,
-          hexo-tag-leaflet]
+```
+{% mp4gif  your_GIF_URI <use poster?> %}
+or 
+{% webmgif your_GIF_URI <use poster?> %}
+```
+Just put your GIF link here and the URI extension replacement will be handled internally.  
+The `use poster` boolean arg is optional. With a poster enabled, a picture is shown while video is downloading.
+
+Other `<video>` attributes' default settings are listed below:
+| Attribute | Default setting |
+| ----- | --------- |
+| width | untouched |
+| height | untouched |
+| muted | true |
+| poster | false, if arg `use poster` is specified as true, it's the GIF URI with extension replaced by **jpg**. |
+
+This tag plugin is compatible with the orginal `hexo-tag-html5` plugin.
+
+## License
+MIT
+
+
+
+
