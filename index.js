@@ -1,18 +1,35 @@
 'use strict';
 
+var rDivClass = /-?[_a-zA-Z]+[_a-zA-Z0-9-]*/;
+//var defaultStyle = 'display:block; margin:auto auto;'
 
 function insertVideoTag(args, type) {
-  var uri = args[0];
-  var usePoster = args[1] || false;
+  var tagConfig = hexo.config.hexo_tag_optimized_gif;
+  var divClass = '';
+  var videoClass = tagConfig.video_css_class || '';
+  var uri = '';
+  var usePoster = tagConfig.enable_poster;
   var html = '';
-  
+
+  if (rDivClass.test(args[0])) {
+    divClass = args.shift();
+  }
+
+  uri = args[0];
   uri = uri.substring(0, uri.lastIndexOf('.')+1); // trim the extension but leave the dot
+  
   var posterAttr = (usePoster == true) ? ('poster="' + uri + 'jpg"') : '';
 
-  html += '<video autoplay loop muted="true" ' + posterAttr + '>';
+  // construct HTML
+  if (divClass) {
+    html += '<div class="' + divClass + '">';
+  }
+  html += '<video class="' + videoClass + '" autoplay loop muted="true" ' + posterAttr + '>';
   html += '<source type="video/' + type + '" src="' + uri + type + '">';
-  html += 'Your browser does not support the video tag.';
-  html += '</video>'
+  html += 'Your browser does not support the video tag.</video>';
+  if (divClass) {
+    html += '</div>';
+  }
 
   return html;
 }

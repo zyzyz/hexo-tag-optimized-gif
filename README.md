@@ -15,20 +15,33 @@ $ npm install hexo-tag-optimized-gif --save
 ## Usage
 
 ```
-{% mp4gif  your_GIF_URI <use poster?> %}
+{% mp4gif [div_class] your_URI %}
 or 
-{% webmgif your_GIF_URI <use poster?> %}
+{% webmgif [div_class] your_URI %}
 ```
-Just put your GIF link here and the URI extension replacement will be handled internally.  
-The `use poster` boolean arg is optional. With a poster enabled, a picture is shown while video is downloading.
+| Arg | Description |
+| ----- | --------- |
+|div_class| Optional. If this class name is specified, a `div` wrapper is created and its class is `div_class`.
+|your_URI| Just put your GIF link here and the URI extension replacement will be handled internally.
 
-Other `<video>` attributes' default settings are listed below:
+## Configuration
+
+Add the following lines into your hexo `_config.yml` file:
+```yaml
+hexo_tag_optimized_gif:
+  enable_poster: false
+  video_css_class: [your class name]
+```
++ enable_poster: whether to use `poster` attribute for `<video>` tag. With it enabled, the picture coverted from your URI by CDN is shown while video is downloading.
++ video_css_class: the class name you specify for `<video>` tag.
+
+Other default settings of `<video>` attributes are listed below:
 | Attribute | Default setting |
 | ----- | --------- |
 | width | untouched |
 | height | untouched |
 | muted | true |
-| poster | false, if arg `use poster` is specified as true, it's the GIF URI with extension replaced by **jpg**. |
+| poster | empty string, if `enable_poster` is true, it's the URI with extension replaced by **jpg**. |
 
 This tag plugin is compatible with the orginal `hexo-tag-html5` plugin.
 
