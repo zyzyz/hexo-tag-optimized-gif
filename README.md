@@ -2,7 +2,7 @@
 
 Add embedded html5 video to hexo, but treat it like a GIF.
 
-Maybe you are recording GIFs for your blog but the GIF files are too big and many of them are eating up band width from your free plan CDN? An optimization is to use some kind of CDN like Cloudinay which is able to covert your uploaded GIF into smaller `MP4` or `WebM` video file by just changing extension at the end of your file URL.
+Maybe you are recording GIFs for your blog but the GIF files are too big and many of them are eating up band width from your free plan CDN? An optimization is to use some kind of CDN like Cloudinary which is able to covert your uploaded GIF into smaller `MP4` or `WebM` video file by just changing extension of your file URI.
 
 This tag will add a `<video>` tag with `autoplay` and `loop` attributes when generation, helping you achieve the optimization.
 
@@ -19,6 +19,7 @@ $ npm install hexo-tag-optimized-gif --save
 or 
 {% webmgif [div_class] your_URI %}
 ```
+
 | Arg | Description |
 | ----- | --------- |
 |div_class| Optional. If this class name is specified, a `div` wrapper is created and its class is `div_class`.
@@ -32,10 +33,12 @@ hexo_tag_optimized_gif:
   enable_poster: false
   video_css_class: [your class name]
 ```
+
 + enable_poster: whether to use `poster` attribute for `<video>` tag. With it enabled, the picture coverted from your URI by CDN is shown while video is downloading.
 + video_css_class: the class name you specify for `<video>` tag.
 
 Other default settings of `<video>` attributes are listed below:
+
 | Attribute | Default setting |
 | ----- | --------- |
 | width | untouched |
