@@ -1,6 +1,6 @@
 'use strict';
 
-var rDivClass = /-?[_a-zA-Z]+[_a-zA-Z0-9-]*/;
+var rDivClass = /^(-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*)*$/;
 //var defaultStyle = 'display:block; margin:auto auto;'
 
 function insertVideoTag(args, type) {

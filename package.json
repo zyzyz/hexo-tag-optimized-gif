@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-optimized-gif",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Hexo tag to embed html5 video into a post, but treated as GIF",
   "main": "index.js",
   "repository": {
