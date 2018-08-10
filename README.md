@@ -22,7 +22,7 @@ or
 
 | Arg | Description |
 | ----- | --------- |
-|div_class(Optional)| Multiple class names supported (with spaces). If this class name is specified, a `div` wrapper is created and its class is `div_class`.
+|div_class(Optional)| Multiple class names supported (using "" to wrap names). If this class name is specified, a `div` wrapper is created and its class is `div_class`.
 |your_URI| Just put your GIF link here and the URI extension replacement will be handled internally.
 
 ## Configuration
